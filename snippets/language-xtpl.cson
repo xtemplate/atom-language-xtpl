@@ -1,0 +1,77 @@
+".source.xtpl":
+  "require":
+    "prefix": "xrq"
+    "body": '{{ require ("${1:path}") }}'
+  "variable":
+    "prefix": "xv"
+    "body": '{{ ${1:variable} }}'
+  "raw":
+    "prefix": "xr"
+    "body": """
+    {{%
+    \t${1:content}
+    %}}
+    """
+  "comment":
+    "prefix": "xc"
+    "body": '{{! ${1:comment}}}'
+  "include":
+    "prefix": "xi"
+    "body": '{{ include ("${1:path}") }}'
+  "set":
+    "prefix": "xs"
+    "body": '{{ set (${1:dist}=${2:from}) }}'
+  "if":
+    "prefix": "xif"
+    "body": '{{#if (${1:condition})}}${2:content}{{/if}}'
+  "each":
+    "prefix": "xe"
+    "body": """
+    {{#each (${1:params})}}
+    \t${2:content}
+    {{/each}}
+    """
+  "if-else":
+    "prefix": "xief"
+    "body": """
+    {{#if (${1:condition})}}
+    \t${2:content}
+    {{else}}
+    \t${3:content}
+    {{/if}}
+    """
+  "if-elseif-else":
+    "prefix": "xieef"
+    "body": """
+    {{#if (${1:condition})}}
+    \t${3:content}
+    {{elseif (${2:condition})}}
+    \t${4:content}
+    {{else}}
+    \t${5:content}
+    {{/if}}
+    """
+  "with":
+    "prefix": "xw"
+    "body": """
+    {{#with}}
+    \t${1:content}
+    {{/with}}
+    """
+  "block-define":
+    "prfix": "xbd"
+    "body": """
+    {{#block ("${1:name}")}}
+    \t${2:content}
+    {{/block}}
+    """
+  "block":
+    "prfix": "xb"
+    "body": '{{{block ("${1:name}")}}}'
+  "macro":
+    "prefix": "xmd"
+    "body": """
+    {{#macro(${1:params})}}
+    \t${2:content}
+    {{/macro}}
+    """

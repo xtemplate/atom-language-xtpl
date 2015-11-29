@@ -1,0 +1,213 @@
+'name': 'XTemplate'
+'scopeName': 'source.xtpl'
+'fileTypes': [
+  'xtpl'
+  'xtemplate'
+]
+'patterns': [
+
+  # Comments
+  {
+    'begin': '\\{\\{!'
+    'end': '\\}\\}$'
+    'name': 'comment.block.xtpl'
+
+  }
+
+  # Escape
+  {
+    'begin': '\\{\\{\\{'
+    'end': '\\}\\}\\}'
+    'captures':
+      '0':
+        'name': 'entity.name.tag.xtpl'
+    'name': 'meta.tag.template.escape.xtpl'
+  }
+
+  # Raw
+
+  {
+    'begin': '\\{\\{%'
+    'end': '%\\}\\}'
+    'captures':
+      '0':
+        'name': 'entity.name.tag.xtpl'
+    'name': 'meta.tag.template.raw.xtpl'
+    'patterns': [
+      {
+        'include': 'text.html.basic'
+      }
+    ]
+  }
+
+  # Helpers
+  {
+    'begin': '\\{\\{\\s*(else|include|set|elseif|require|void|parse)\\s*'
+    'beginCaptures':
+      '0':
+        'name': 'entity.name.tag.xtpl'
+      '1':
+        'name': 'entity.name.function.xtpl'
+      '2':
+        'name': ''
+    'end': '\\}\\}'
+    'endCaptures':
+      '0':
+        'name': 'entity.name.tag.xtpl'
+    'name': 'meta.tag.template.xtpl'
+    'patterns': [
+      {
+        'include': '#function-params'
+      }
+    ]
+  }
+
+  # Block expressions
+  {
+    'begin': '\\{\\{([#^])(\\w[\\w\/-]*)'
+    'beginCaptures':
+      '0':
+        'name': 'entity.name.tag.xtpl'
+      '1':
+        'name': 'punctuation.definition.block.begin.xtpl'
+      '2':
+        'name': 'entity.name.function.xtpl'
+    'end': '\\}\\}'
+    'endCaptures':
+      '0':
+        'name': 'entity.name.tag.xtpl'
+    'name': 'meta.tag.template.xtpl'
+    'patterns': [
+      {
+        'include': '#function-params'
+      }
+    ]
+  }
+
+  # Close - Block expressions
+  {
+    'begin': '\\{\\{(/)(\\w[\\w\/-]*)'
+    'beginCaptures':
+      '0':
+        'name': 'entity.name.tag.xtpl'
+      '1':
+        'name': 'punctuation.definition.block.end.xtpl'
+      '2':
+        'name': 'entity.name.function.xtpl'
+    'end': '\\}\\}'
+    'endCaptures':
+      '0':
+        'name': 'entity.name.tag.xtpl'
+    'name': 'meta.tag.template.xtpl'
+  }
+
+  # Variables
+  {
+    'begin': '\\{\\{'
+    'end': '\\}\\}'
+    'captures':
+      '0':
+        'name': 'entity.name.tag.xtpl'
+    'name': 'meta.tag.template.xtpl'
+    'patterns': [
+      {
+        'include': '#function-params'
+      }
+    ]
+  }
+
+  {
+    'include': 'text.html.basic'
+  }
+]
+
+'repository':
+  'strings':
+    'patterns': [
+      {
+        'begin': '\''
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.xtpl'
+        'end': '\''
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.xtpl'
+        'name': 'string.quoted.single.xtpl'
+      }
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.xtpl'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.xtpl'
+        'name': 'string.quoted.double.xtpl'
+      }
+    ]
+  'numbers':
+    'patterns': [
+      {
+        'match': '\\b(?<!\\$|_)((0(x|X)[0-9a-fA-F]+)|(0(b|B)[01]+)|(0(o|O)[0-7]+)|([0-9]+(\\.[0-9]+)?)((e|E)[+-]?[0-9]+)?)\\b'
+        'name': 'constant.numeric.xtpl'
+      }
+    ]
+  'boolean':
+    'patterns': [
+      {
+        'match': '(?<!\\.)\\b(true|false)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)(true|false)(?=\\s*:)'
+        'captures':
+          '1':
+            'name': 'constant.language.boolean.$1.xtpl'
+          '2':
+            'name': 'constant.language.boolean.$2.xtpl'
+      }
+    ]
+  'special':
+    'patterns': [
+      {
+        'match': '\\b(Infinity|NaN|undefined|null|xindex)\\b'
+        'name': 'constant.language.xtpl'
+      }
+    ]
+  'function-params':
+    'patterns': [
+      {
+        'include': '#numbers'
+      }
+      {
+        'include': '#strings'
+      }
+      {
+        'include': '#boolean'
+      }
+      {
+        'include': '#special'
+      }
+      {
+        'match': '\\(|\\)'
+        'name': 'meta.brace.round.xtpl'
+      }
+      {
+        'match': '\\[|\\]'
+        'name': 'meta.brace.square.xtpl'
+      }
+      {
+        'match': '{|}'
+        'name': 'meta.brace.curly.xtpl'
+      }
+      {
+        'match': ','
+        'name': 'meta.object.delimiter.xtpl'
+      }
+      {
+        'match': '='
+        'name': 'keyword.operator.assignment.xtpl'
+      }
+      {
+        'match': '[a-zA-Z_$][a-zA-Z_$0-9]*'
+        'name': 'variable.parameter.function.xtpl'
+      }
+    ]
