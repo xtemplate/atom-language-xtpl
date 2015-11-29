@@ -5,7 +5,7 @@ XTemplate support in Atom
 ## Installation
 
 ```bash
-$ apm install language-xtpl
+$ apm install atom-language-xtpl
 
 # or
 
