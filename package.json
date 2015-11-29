@@ -1,19 +1,19 @@
 {
-  "name": "language-xtpl",
+  "name": "atom-language-xtpl",
   "version": "1.0.0",
   "description": "XTemplate support in Atom",
   "engines": {
     "atom": "*",
     "node": "*"
   },
-  "homepage": "https://github.com/LingyuCoder/language-xtpl",
+  "homepage": "https://github.com/LingyuCoder/atom-language-xtpl",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LingyuCoder/language-xtpl.git"
+    "url": "https://github.com/LingyuCoder/atom-language-xtpl.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LingyuCoder/language-xtpl/issues"
+    "url": "https://github.com/LingyuCoder/atom-language-xtpl/issues"
   },
   "main": "index.js",
   "scripts": {
