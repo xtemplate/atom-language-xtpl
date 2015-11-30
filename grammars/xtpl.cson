@@ -48,8 +48,6 @@
         'name': 'entity.name.tag.xtpl'
       '1':
         'name': 'entity.name.function.xtpl'
-      '2':
-        'name': ''
     'end': '\\}\\}'
     'endCaptures':
       '0':
