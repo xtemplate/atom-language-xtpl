@@ -42,7 +42,7 @@
 
   # Helpers
   {
-    'begin': '\\{\\{\\s*(else|include|set|elseif|require|void|parse)\\s*'
+    'begin': '\\{\\{\\s*(else(?:if)?|include|set|require|void|parse)\\s*'
     'beginCaptures':
       '0':
         'name': 'entity.name.tag.xtpl'
