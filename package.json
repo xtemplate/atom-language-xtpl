@@ -6,14 +6,14 @@
     "atom": "*",
     "node": "*"
   },
-  "homepage": "https://github.com/LingyuCoder/atom-language-xtpl",
+  "homepage": "https://github.com/xtemplate/atom-language-xtpl",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LingyuCoder/atom-language-xtpl.git"
+    "url": "https://github.com/xtemplate/atom-language-xtpl.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LingyuCoder/atom-language-xtpl/issues"
+    "url": "https://github.com/xtemplate/atom-language-xtpl/issues"
   },
   "main": "index.js",
   "scripts": {
