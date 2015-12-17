@@ -1,6 +1,6 @@
 {
   "name": "atom-language-xtpl",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "XTemplate support in Atom",
   "engines": {
     "atom": "*",
