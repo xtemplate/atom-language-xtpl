@@ -15,6 +15,12 @@
   "comment":
     "prefix": "xc"
     "body": '{{! ${1:comment}}}'
+  "use":
+    "prefix": "xu"
+    "body": '{{ use ("${1:path}", ${2:params}) }}'
+  "extend":
+    "prefix": "xet"
+    "body": '{{ extend ("${1:path}") }}'
   "include":
     "prefix": "xi"
     "body": '{{ include ("${1:path}") }}'

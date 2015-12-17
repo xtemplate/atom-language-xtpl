@@ -53,6 +53,18 @@ File with `.xtpl` or `.xtemplate` will be highlight like this
 {{ include ("path") }}
 ```
 
+### `xet`:extend
+
+```
+{{ extend ("path") }}
+```
+
+### `xu`:use
+
+```
+{{ use ("path", params) }}
+```
+
 ### `xs`:set
 
 ```
